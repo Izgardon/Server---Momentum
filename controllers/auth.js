@@ -1,9 +1,7 @@
-// const express = require('express');
-// const router = express.Router();
-
-// const bcrypt = require('bcryptjs');
-
-// const User = require('../models/user');
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcryptjs");
+const User = require("../models/user");
 
 // router.post('/register', async (req, res) => {
 //     try {
@@ -16,19 +14,21 @@
 //     }
 // })
 
-// router.post('/login', async (req, res) => {
-//     try {
-//         const user = await User.findByEmail(req.body.email)
-//         if(!user){ throw new Error('No user with this email') }
-//         const authed = bcrypt.compare(req.body.password, user.passwordDigest)
-//         if (!!authed){
-//             res.status(200).json({ user: user.username })
-//         } else {
-//             throw new Error('User could not be authenticated')  
-//         }
-//     } catch (err) {
-//         res.status(401).json({ err });
-//     }
-// })
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findByUsername(req.body.username);
+    if (!user) {
+      throw new Error("No user with this name");
+    }
+    const authed = bcrypt.compare(req.body.password, user.password);
+    if (!!authed) {
+      res.status(200).json({ user: user.username });
+    } else {
+      throw new Error("User could not be authenticated");
+    }
+  } catch (err) {
+    res.status(401).json({ err });
+  }
+});
 
 // module.exports = router
