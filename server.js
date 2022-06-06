@@ -5,13 +5,10 @@ const connectDB = require("./config/db");
 
 //Routes
 const app = express();
+app.use(express.json());
+app.get("/", (req, res) => res.send("Welcome to momentum"));
 
 // mount routers
-const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
-
-// const habitsRoutes = require("./routes/habits");
-// app.use("/habits", habitsRoutes);
 
 //load env variables
 dotenv.config({ path: "./config/config.env" });
@@ -20,13 +17,12 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 //body parser
-app.use(express.json());
-
 
 // route files
-const habits = require('./routes/habits')
-app.use('/habits', habits)
-
+const authRoutes = require("./routes/auth");
+app.use("/auth", authRoutes);
+const habitsRoutes = require("./routes/habits");
+app.use("/habits", habitsRoutes);
 
 const PORT = process.env.PORT || 5050;
 
