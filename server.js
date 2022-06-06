@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 //Routes
 const app = express();
 app.use(express.json());
+
 app.get("/", (req, res) => res.send("Welcome to momentum"));
 
 // mount routers
@@ -16,7 +17,6 @@ dotenv.config({ path: "./config/config.env" });
 // connect to db
 connectDB();
 
-//body parser
 
 // route files
 const authRoutes = require("./routes/auth");

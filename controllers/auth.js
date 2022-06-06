@@ -5,14 +5,12 @@ async function register(req, res) {
   try {
     /*  const salt = await bcrypt.genSalt();
     const hashed = await bcrypt.hash(req.body.password, salt);
-    const user = new User({
-      name: req.body.title,
+    const user = await User.create ({
+      username: req.body.username,
       password: hashed,
       date: req.body.message,
-    }); */
-    //Add user to db
 
-    res.status(201).json({ msg: "User created" });
+    res.status(201).json(user);
   } catch (err) {
     res.status(500).json({ err });
   }
@@ -35,4 +33,9 @@ async function login(req, res) {
   }
 }
 
-module.exports = { register, login };
+async function getAllUsers(req, res) {
+  const allUsers = await User.find()
+  res.json(allUsers)
+}
+
+module.exports = { register, login, getAllUsers };

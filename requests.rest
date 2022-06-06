@@ -1,0 +1,20 @@
+###
+GET http://localhost:5005/auth
+
+###
+POST http://localhost:5005/auth/register
+Content-Type: application/json
+
+{
+    "username": "Will",
+    "password": "Foxtrot5"
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "name":  "Will",
+    "password": "Foxtrot5"
+}
