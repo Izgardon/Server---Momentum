@@ -10,8 +10,6 @@ async function register(req, res) {
       password: hashed,
       date: req.body.message,
     });
-    //Add user to db
-    //db.collection("users").insertOne(user)
 
     res.status(201).json(user);
   } catch (err) {

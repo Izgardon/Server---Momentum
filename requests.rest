@@ -6,7 +6,7 @@ POST http://localhost:5005/auth/register
 Content-Type: application/json
 
 {
-    "title": "Will",
+    "username": "Will",
     "password": "Foxtrot5"
 }
 
@@ -15,6 +15,6 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "name":  "Tamara",
+    "name":  "Will",
     "password": "Foxtrot5"
 }
