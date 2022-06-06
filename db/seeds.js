@@ -13,4 +13,12 @@ const { default: mongoose } = require('mongoose')
 
 
 
+// connect to db
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    //   useCreateIndex: true,
+      // useFindAndModify: false,
+      useUnifiedTopology: true
+
+})
