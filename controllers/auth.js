@@ -3,13 +3,12 @@ const User = require("../models/auth");
 
 async function register(req, res) {
   try {
-    const salt = await bcrypt.genSalt();
+    /*  const salt = await bcrypt.genSalt();
     const hashed = await bcrypt.hash(req.body.password, salt);
     const user = await User.create ({
       username: req.body.username,
       password: hashed,
       date: req.body.message,
-    });
 
     res.status(201).json(user);
   } catch (err) {

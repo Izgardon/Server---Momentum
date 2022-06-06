@@ -15,8 +15,8 @@ router.route("/")
 
 router
   .route("/:id")
-  .put(updateHabit)
+  .patch(updateHabit)
   // .patch(completeHabit)
   .delete(deleteHabit);
-  
+
 module.exports = router;
