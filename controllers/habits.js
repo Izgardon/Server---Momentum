@@ -17,10 +17,8 @@ exports.getHabits = async (req, res, next) => {
 }
 
 
-
 // Create new  habit
-// POST '/habits'
-
+// POST '/'
 exports.createHabit = async (req, res, next) => {
 
 try {
@@ -36,8 +34,18 @@ try {
 
 }
 
+
+
+
+
+
+
+
+
+
+
 // Update new  habit
-// PUT /habits/:id
+// PUT /:id
 
 exports.updateHabit = async (req, res, next) => {
   
@@ -61,7 +69,7 @@ exports.updateHabit = async (req, res, next) => {
 
 
 // DELETE   habit
-// DELETE /habits/:id
+// DELETE /:id
 
 exports.deleteHabit = async (req, res, next) => {
 

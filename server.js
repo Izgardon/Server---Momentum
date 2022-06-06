@@ -26,15 +26,15 @@ app.use(express.json())
 
 
 
-// dev loggin middleware
+// route files
+const habits = require('./routes/habits')
 
 
 // mount routers
+app.use('/', habits)
 
 
-
-
-const PORT = process.env.PORT || 5050
+const PORT = process.env.PORT || 5005
 
 const server = app.listen(PORT, console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold)); 
 
