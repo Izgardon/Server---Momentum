@@ -10,8 +10,8 @@ const app = express();
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
-const habitsRoutes = require("./routes/habits");
-app.use("/habits", habitsRoutes);
+// const habitsRoutes = require("./routes/habits");
+// app.use("/habits", habitsRoutes);
 
 //load env variables
 dotenv.config({ path: "./config/config.env" });
@@ -25,7 +25,7 @@ app.use(express.json());
 
 // route files
 const habits = require('./routes/habits')
-app.use('/', habits)
+app.use('/habits', habits)
 
 
 const PORT = process.env.PORT || 5050;
