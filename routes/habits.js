@@ -1,4 +1,6 @@
 const express = require("express");
+const router = express.Router();
+
 const {
   getHabits,
   // completEHabit,
@@ -7,8 +9,8 @@ const {
   deleteHabit,
 } = require("../controllers/habits");
 
-const router = express.Router();
 router.route("/").get(getHabits).post(createHabit);
+
 router
   .route("/:id")
   .put(updateHabit)
