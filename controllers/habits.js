@@ -1,5 +1,8 @@
 const Habits = require("../models/habits");
 
+// Get all habit 
+// GET /habits
+
 exports.getHabits = async (req, res, next) => {
   try {
     const habits = await Habits.find();
@@ -9,21 +12,21 @@ exports.getHabits = async (req, res, next) => {
   }
 };
 // Create new  habit
-// POST '/'
+// POST '/habits'
 exports.createHabit = async (req, res, next) => {
   try {
     const habit = await Habits.create(req.body);
     // console.log(req.body)
     res.status(201).json({
       success: true,
-      data: habit,
+      data: habit
     });
   } catch (error) {
     res.status(400).json({ success: false });
   }
 };
 // Update new  habit
-// PUT /:id
+// PUT /habits/:id
 exports.updateHabit = async (req, res, next) => {
   try {
     const habit = await Habits.findByIdAndUpdate(req.params.id, req.body, {
@@ -39,7 +42,7 @@ exports.updateHabit = async (req, res, next) => {
   }
 };
 // DELETE   habit
-// DELETE /:id
+// DELETE /habits/:id
 exports.deleteHabit = async (req, res, next) => {
   try {
     const habit = await Habits.findByIdAndDelete(req.params.id);
