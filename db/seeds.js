@@ -22,3 +22,20 @@ mongoose.connect(process.env.MONGO_URI, {
       useUnifiedTopology: true
 
 })
+
+// READ JSON FILE
+const habits = JSON.parse(fs.readFileSync(`${__dirname}/data/habits.json`, 'utf-8'))
+
+// import into db
+const importData = async () => {
+    try {
+        await Habit.create(habits)
+        console.log('data imported...'.green.inverse)
+        process.exit()
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+
