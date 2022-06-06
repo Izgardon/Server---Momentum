@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const User = require("../models/user");
+const User = require("../models/auth");
 
 async function register(req, res) {
   try {
@@ -35,4 +35,4 @@ async function login(req, res) {
   }
 }
 
-// module.exports = router
+module.exports = { register, login };

@@ -1,5 +1,4 @@
 const Habits = require("../models/habits");
-const router = require("../routes/habits");
 
 exports.getHabits = async (req, res, next) => {
   try {

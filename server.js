@@ -5,6 +5,7 @@ const colors = require("colors");
 const connectDB = require("./config/db");
 
 //Routes
+const app = express();
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
@@ -17,8 +18,6 @@ dotenv.config({ path: "./config/config.env" });
 
 // connect to db
 connectDB();
-
-const app = express();
 
 //body parser
 app.use(express.json());
