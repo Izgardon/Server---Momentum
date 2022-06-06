@@ -19,14 +19,15 @@ exports.getHabits = async (req, res, next) => {
 
 // Create new  habit
 // POST '/'
-exports.createHabit = async (req, res, next) => {
+exports.createHabit =  async (req, res, next) => {
 
 try {
     const habit = await Habits.create(req.body)
-    
+    // console.log(req.body)
     res.status(201).json({ 
         success: true,
         data: habit
+     
        })  
 } catch (error) {
     res.status(400).json({ success: false})

@@ -15,9 +15,6 @@ dotenv.config({path: './config/config.env'});
 connectDB()
 
 
-
-
-
 const app = express();
 
 
