@@ -39,3 +39,18 @@ const importData = async () => {
     }
 }
 
+// delete data
+const deleteData = async () => {
+    try {
+        await Habit.deleteMany()
+        console.log('data destroyed...'.red.inverse)
+        process.exit()
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+
+
+
