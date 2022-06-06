@@ -6,10 +6,10 @@ const connectDB = require("./config/db");
 
 //Routes
 
-const authRoutes = require("./controllers/auth");
+const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
-const habitsRoutes = require("./controllers/habits");
+const habitsRoutes = require("./routes/habits");
 app.use("/habits", habitsRoutes);
 
 //load env variables
