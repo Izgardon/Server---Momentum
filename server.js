@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-// const morgan = require('morgan');
 const colors = require("colors");
 const connectDB = require("./config/db");
 
@@ -9,11 +8,12 @@ const app = express();
 app.use(express.json());
 app.get("/", (req, res) => res.send("Welcome to momentum"));
 
+// mount routers
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
-const habitsRoutes = require("./routes/habits");
-app.use("/habits", habitsRoutes);
+// const habitsRoutes = require("./routes/habits");
+// app.use("/habits", habitsRoutes);
 
 //load env variables
 dotenv.config({ path: "./config/config.env" });
@@ -23,9 +23,11 @@ connectDB();
 
 //body parser
 
-// dev loggin middleware
 
-// mount routers
+// route files
+const habits = require('./routes/habits')
+app.use('/habits', habits)
+
 
 const PORT = process.env.PORT || 5050;
 
