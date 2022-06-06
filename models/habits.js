@@ -34,4 +34,6 @@ const habitSchema = new mongoose.Schema({
     default: false,
   },
 });
-module.exports = mongoose.model("habit", habitSchema);
+
+const Habits = mongoose.model("habit", habitSchema);
+module.exports = Habits;

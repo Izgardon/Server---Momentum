@@ -6,6 +6,8 @@ const connectDB = require("./config/db");
 
 //Routes
 const app = express();
+app.use(express.json());
+app.get("/", (req, res) => res.send("Welcome to momentum"));
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
@@ -20,7 +22,6 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 //body parser
-app.use(express.json());
 
 // dev loggin middleware
 
