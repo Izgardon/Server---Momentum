@@ -9,9 +9,7 @@ const {
   deleteHabit,
 } = require("../controllers/habits");
 
-router.route("/")
-.get(getHabits)
-.post(createHabit);
+router.route("/").get(getHabits).post(createHabit);
 
 router
   .route("/:id")
