@@ -6,8 +6,8 @@ POST http://localhost:5005/auth/register
 Content-Type: application/json
 
 {
-    "username": "Will",
-    "password": "Foxtrot5"
+    "username": "George",
+    "password": "Foxtrot1"
 }
 
 ###
@@ -16,5 +16,5 @@ Content-Type: application/json
 
 {
     "username":  "Will",
-    "password": "Foxtrot5"
+    "password": "Foxtr5"
 }

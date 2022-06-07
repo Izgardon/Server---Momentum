@@ -2,9 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
 const connectDB = require("./config/db");
+const cors = require("cors");
+
+const app = express();
+app.use(cors("*"));
 
 //Routes
-const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Welcome to momentum"));
@@ -16,7 +19,6 @@ dotenv.config({ path: "./config/config.env" });
 
 // connect to db
 connectDB();
-
 
 // route files
 const authRoutes = require("./routes/auth");
