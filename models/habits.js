@@ -1,39 +1,36 @@
 const mongoose = require("mongoose");
+// const User = require (mongoose.model("user", UserSchema))
+// const ObjectId = mongoose.Schema.Types.ObjectId;
+
+
 const habitSchema = new mongoose.Schema({
-  // username: {
-  //     type: String,
-  //     required: true
-  // },
-  habitName: {
-    type: String,
-    required: true,
-  },
-  habitDesc: {
-    type: String,
-  },
-  // startTime: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  // endTime: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  // date: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  // measure: {
-  //   type: [Number],
-  // },
-  // target: {
-  //   type: [Number],
-  // },
-  completed: {
-    type: Boolean,
-    default: false,
-  },
+  // user:{
+  //   type: mongoose.SchemaTypes.ObjectId, ref: 'user'
+    
+  //  } ,
+
+  tracked_habits: {},
+          streaks: {
+           Cups_of_water: {
+              highest: 0,
+              current: 0,
+            },
+            Time_spent_outdoors: {
+              highest: 0,
+              current: 0,
+            },
+            Time_spent_coding: {
+              highest: 0,
+              current: 0,
+            },
+            Weekly_project: {
+              highest: 0,
+              current: 0,
+            },
+          }
+  
 });
 
 const Habits = mongoose.model("habit", habitSchema);
 module.exports = Habits;
+
