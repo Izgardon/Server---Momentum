@@ -20,12 +20,13 @@ async function register(req, res) {
 async function login(req, res) {
   try {
     //Find user from database
+    let user = await User.findOne({ username: req.body.username })
     if (!user) {
       throw new Error("No user with this name");
     }
     const authed = bcrypt.compare(req.body.password, user.password);
     if (!!authed) {
-      res.status(200).json({ user: user.username });
+      res.status(200).json( user.username );
     } else {
       throw new Error("User could not be authenticated");
     }
