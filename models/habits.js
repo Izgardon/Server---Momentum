@@ -3,45 +3,31 @@ const mongoose = require("mongoose");
 // const ObjectId = mongoose.Schema.Types.ObjectId;
 
 
-
-
-
-
 const habitSchema = new mongoose.Schema({
-  user:{
-    type: mongoose.SchemaTypes.ObjectId, ref: 'user'
+  // user:{
+  //   type: mongoose.SchemaTypes.ObjectId, ref: 'user'
     
-   } ,
- 
-  habitName: {
-    type: String,
-    required: true,
-  },
-  habitDesc: {
-    type: String,
-  },
-  startTime: {
-    type: Date,
-    default: Date.now,
-  },
-  endTime: {
-    type: Date,
-    default: Date.now,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  measure: {
-    type: [Number],
-  },
-  target: {
-    type: [Number],
-  },
-  completed: {
-    type: Boolean,
-    default: false,
-  },
+  //  } ,
+
+  tracked_habits: {},
+          streaks: {
+           Cups_of_water: {
+              highest: 0,
+              current: 0,
+            },
+            Time_spent_outdoors: {
+              highest: 0,
+              current: 0,
+            },
+            Time_spent_coding: {
+              highest: 0,
+              current: 0,
+            },
+            Weekly_project: {
+              highest: 0,
+              current: 0,
+            },
+          }
   
 });
 
