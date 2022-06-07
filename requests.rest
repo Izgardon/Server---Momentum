@@ -18,3 +18,52 @@ Content-Type: application/json
     "username":  "Will",
     "password": "Foxtr5"
 }
+
+###
+GET http://localhost:5005/habits
+
+###
+POST http://localhost:5005/habits
+Content-Type: application/json
+
+ {
+    "username":  "Will",
+    "habits": {
+    "water": {
+      "max": 0,
+      "current": 0
+    },
+    "outdoors": {
+      "max": 0,
+      "current": 0
+    },
+    "coding": {
+      "max": 0,
+      "current": 0
+    },
+    "projects": {
+      "max": 0,
+      "current": 0
+    }
+  },
+
+  "streaks": {
+    "water": {
+      "max": 0,
+      "current": 0
+    },
+    "outdoors": {
+      "max": 0,
+      "current": 0
+    },
+    "coding": {
+      "max": 0,
+      "current": 0
+    },
+    "projects": {
+     "max": 0,
+    "current": 0
+    }
+  }
+    
+}

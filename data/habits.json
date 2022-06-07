@@ -1,21 +1,13 @@
 [
-    {    
-    "habitName": "daily code time",   
-    "habitDesc": "time spent coding today",    
-    "StartTime": "",    
-    "EndTime": "",   
-    "Date": "",   
-     "Measure": 5,   
-     "Target": 5,    
-     "Completed": true,    
-     "CreatedBy": "user_id"
-
+  {
+    "habitName": "daily code time",
+    "habitDesc": "time spent coding today",
+    "StartTime": "",
+    "EndTime": "",
+    "Date": "",
+    "Measure": 5,
+    "Target": 5,
+    "Completed": true,
+    "CreatedBy": "user_id"
   }
-
-
-
-
-
-
-
 ]
