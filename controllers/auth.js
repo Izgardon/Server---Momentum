@@ -14,10 +14,12 @@ async function register(req, res) {
     if (!userCheck) {
       const salt = await bcrypt.genSalt();
       const hashed = await bcrypt.hash(req.body.password, salt);
+      const userHabits = await Habits.create({
+        username: req.body.username,
+      });
       const user = await User.create({
         username: req.body.username,
         password: hashed,
-        date: req.body.message,
       });
 
       res.status(201).json(user);

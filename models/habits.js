@@ -28,7 +28,7 @@ const habitSchema = new mongoose.Schema({
               current: 0,
             },
           }
-  
+ 
 });
 
 const Habits = mongoose.model("habit", habitSchema);
