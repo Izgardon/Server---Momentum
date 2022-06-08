@@ -6,7 +6,7 @@ const config = require('./config');
 const agent = request.agent(server);
 
 // Setup connection to the database
-const db = require('./config/db')
+const db = require('./config')
 
 beforeAll(async () => await db.connect());
 beforeEach(async () => await db.clear());

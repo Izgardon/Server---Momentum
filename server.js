@@ -37,9 +37,9 @@ app.use("/habits", habitsRoutes);
 
 
 
-app.listen(process.env.PORT || 8080, () => {
+if (process.env.NODE_ENV !== 'test') {app.listen(process.env.PORT || 8080, () => {
   console.log("server running on 8080")
-})
+})}
 
 // handle unhandled promise rejection
 process.on("unhandled rejections", (err, promise) => {
