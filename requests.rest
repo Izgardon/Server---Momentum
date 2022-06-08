@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5005/habits/Habit7
+GET http://localhost:5005/habits/Izgardon
 
 ###
 POST http://localhost:5005/habits
@@ -73,9 +73,9 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:5005/habits/Habit9
+PATCH  http://localhost:5005/habits/Izgardon
 Content-Type: application/json
 
 {
-  "habit": "code"
+  "type": "code"
 }

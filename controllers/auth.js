@@ -2,6 +2,15 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/auth");
 const Habits = require("../models/habits");
 
+async function deleteAll() {
+  await Habits.deleteMany();
+  await User.deleteMany();
+}
+
+//Uncomment and save to delete all databases
+
+/* deleteAll(); */
+
 async function register(req, res) {
   try {
     let userCheck = await User.findOne(
