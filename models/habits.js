@@ -11,18 +11,22 @@ const habitSchema = new mongoose.Schema({
     water: {
       max: 0,
       current: 0,
+      active: false,
     },
     outdoors: {
       max: 0,
       current: 0,
+      active: false,
     },
     coding: {
       max: 0,
       current: 0,
+      active: false,
     },
     projects: {
       max: 0,
       current: 0,
+      active: false,
     },
   },
 

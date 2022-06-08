@@ -60,18 +60,22 @@ async function habitCreator(data) {
       water: {
         max: 8,
         current: 0,
+        active: false,
       },
       outdoors: {
         max: 3,
         current: 0,
+        active: false,
       },
       coding: {
         max: data.skill * 2,
         current: 0,
+        active: false,
       },
       projects: {
         max: data.skill * 1,
         current: 0,
+        active: false,
       },
     },
 
