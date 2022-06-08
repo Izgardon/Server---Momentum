@@ -3,10 +3,10 @@ const Habits = require("../models/habits");
 // Get all habit
 // GET /habits
 
-exports.getHabits = async (req, res, next) => {
+exports.getHabit = async (req, res, next) => {
   try {
-    const habits = await Habits.find();
-    res.status(200).json(habits);
+    const userHabits = await Habits.find({ username: req.params.id });
+    res.status(200).json(userHabits);
   } catch (error) {
     res.status(400).json({ success: false });
   }
