@@ -3,7 +3,7 @@ const server = require('../server');
 const config = require('./config');
 
 // Pass supertest agent for each test
-const agent = request.agent(app);
+const agent = request.agent(server);
 
 // Setup connection to the database
 beforeAll(async () => await db.connect());

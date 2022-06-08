@@ -5,9 +5,6 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 let mongoServer;
 
-// For mongodb-memory-server's old version (< 7) use this instead:
-// const mongoServer = new MongoMemoryServer();
-
 const opts = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
