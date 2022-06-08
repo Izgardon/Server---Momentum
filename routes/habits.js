@@ -2,19 +2,18 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  getHabits,
+  getHabit,
   // completEHabit,
   createHabit,
   updateHabit,
   deleteHabit,
 } = require("../controllers/habits");
 
-router.route("/")
-.get(getHabits)
-.post(createHabit);
+router.route("/").post(createHabit);
 
 router
   .route("/:id")
+  .get(getHabit)
   .patch(updateHabit)
   // .patch(completeHabit)
   .delete(deleteHabit);
