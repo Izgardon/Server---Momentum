@@ -11,13 +11,14 @@
     "npm": "7.24.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "preset": "@shelf/jest-mongodb"
   },
   "scripts": {
-    "test": "jest --watchAll d--coverage --verbose --silent --runInBand",
+    "test": "jest --watchAll d--coverage --verbose --silent --runInBand ./test",
     "coverage": "jest --coverage",
     "start": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server "
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,9 @@
     "mongoose": "^6.3.5"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^3.0.1",
     "jest": "^28.1.1",
+    "mockingoose": "^2.15.2",
     "mongodb-memory-server": "^8.6.0",
     "nodemon": "^2.0.16",
     "supertest": "^6.2.3"
