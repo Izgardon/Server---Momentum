@@ -43,15 +43,21 @@ exports.createHabit = async (req, res, next) => {
 exports.updateHabit = async (req, res, next) => {
   try {
     if (req.body.habit) {
-      var queryParam = {};
+      let queryParam = {};
       queryParam[`habits.${req.body.habit}.active`] = true;
 
-      let updatedHabit = await Habits.findOneAndUpdate(
+      await Habits.findOneAndUpdate({ username: req.params.id }, queryParam);
+
+      res.status(202).send("Success adding habit");
+    } else if (req.body.type) {
+      let queryParam = {};
+      queryParam[`habits.${req.body.type}.current`] = 1;
+      let incrementedHabit = await Habits.findOneAndUpdate(
         { username: req.params.id },
-        queryParam
+        { $inc: queryParam },
+        { new: true }
       );
-      console.log(updatedHabit);
-      res.status(204).send("Success");
+      res.status(202).json(incrementedHabit);
     }
   } catch (error) {
     res.status(400).json({ success: false });
