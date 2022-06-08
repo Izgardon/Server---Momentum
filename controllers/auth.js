@@ -67,7 +67,7 @@ async function habitCreator(data) {
         current: 0,
         active: false,
       },
-      coding: {
+      code: {
         max: data.skill * 2,
         current: 0,
         active: false,

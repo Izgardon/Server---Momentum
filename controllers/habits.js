@@ -42,14 +42,17 @@ exports.createHabit = async (req, res, next) => {
 // PUT /habits/:id
 exports.updateHabit = async (req, res, next) => {
   try {
-    const habit = await Habits.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!habit) {
-      return res.status(400).json({ sucess: false });
+    if (req.body.habit) {
+      var queryParam = {};
+      queryParam[`habits.${req.body.habit}.active`] = true;
+
+      let updatedHabit = await Habits.findOneAndUpdate(
+        { username: req.params.id },
+        queryParam
+      );
+      console.log(updatedHabit);
+      res.status(204).send("Success");
     }
-    res.status(200).json({ sucess: true, data: habit });
   } catch (error) {
     res.status(400).json({ success: false });
   }

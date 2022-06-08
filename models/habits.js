@@ -18,7 +18,7 @@ const habitSchema = new mongoose.Schema({
       current: 0,
       active: false,
     },
-    coding: {
+    code: {
       max: 0,
       current: 0,
       active: false,
