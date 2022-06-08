@@ -3,6 +3,8 @@ const Habits = require("../models/habits");
 // Get all habit
 // GET /habits
 
+
+
 exports.getHabit = async (req, res, next) => {
   try {
     const userHabits = await Habits.find({ username: req.params.id });
@@ -11,6 +13,14 @@ exports.getHabit = async (req, res, next) => {
     res.status(400).json({ success: false });
   }
 };
+
+
+
+
+
+
+
+
 // Create new  habit
 // POST '/habits'
 exports.createHabit = async (req, res, next) => {
@@ -24,6 +34,10 @@ exports.createHabit = async (req, res, next) => {
     res.status(400).json({ success: false });
   }
 };
+
+
+
+
 // Update new  habit
 // PUT /habits/:id
 exports.updateHabit = async (req, res, next) => {
