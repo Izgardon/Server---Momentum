@@ -1,42 +1,58 @@
 const Habits = require("../models/habits");
 
-// Get all habit 
+// Get all habit
 // GET /habits
 
-exports.getHabits = async (req, res, next) => {
+
+
+exports.getHabit = async (req, res, next) => {
   try {
-    const habits = await Habits.find();
-    res.status(200).json({ sucess: true, count: habits.length, data: habits });
+    const userHabits = await Habits.find({ username: req.params.id });
+    res.status(200).json(userHabits);
   } catch (error) {
     res.status(400).json({ success: false });
   }
 };
+
+
+
+
+
+
+
+
 // Create new  habit
 // POST '/habits'
 exports.createHabit = async (req, res, next) => {
   try {
     const habit = await Habits.create(req.body);
-    // console.log(req.body)
+
     res.status(201).json({
-      success: true,
-      data: habit
+      data: habit,
     });
   } catch (error) {
     res.status(400).json({ success: false });
   }
 };
+
+
+
+
 // Update new  habit
 // PUT /habits/:id
 exports.updateHabit = async (req, res, next) => {
   try {
-    const habit = await Habits.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!habit) {
-      return res.status(400).json({ sucess: false });
+    if (req.body.habit) {
+      var queryParam = {};
+      queryParam[`habits.${req.body.habit}.active`] = true;
+
+      let updatedHabit = await Habits.findOneAndUpdate(
+        { username: req.params.id },
+        queryParam
+      );
+      console.log(updatedHabit);
+      res.status(204).send("Success");
     }
-    res.status(200).json({ sucess: true, data: habit });
   } catch (error) {
     res.status(400).json({ success: false });
   }

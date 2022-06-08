@@ -6,9 +6,17 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": "12.19.0",
+    "npm": "7.24.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node server",
+    "test": "jest --watchAll d--coverage --verbose --silent --runInBand",
+    "coverage": "jest --coverage",
+    "start": "node server",
     "dev": "nodemon server"
   },
   "repository": {
@@ -25,11 +33,15 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongoose": "^6.3.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "jest": "^28.1.1",
+    "mongodb-memory-server": "^8.6.0",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
   }
 }

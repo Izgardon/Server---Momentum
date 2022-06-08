@@ -6,8 +6,8 @@ POST http://localhost:5005/auth/register
 Content-Type: application/json
 
 {
-    "username": "Will",
-    "password": "Foxtrot5"
+    "username": "George",
+    "password": "Foxtrot1"
 }
 
 ###
@@ -16,5 +16,66 @@ Content-Type: application/json
 
 {
     "username":  "Will",
-    "password": "Foxtrot5"
+    "password": "Foxtr5"
+}
+
+###
+GET http://localhost:5005/habits/Habit7
+
+###
+POST http://localhost:5005/habits
+Content-Type: application/json
+
+ {
+    "username":  "Habit9",
+    "habits": {
+    "water": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "outdoors": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "code": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "projects": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    }
+  },
+
+  "streaks": {
+    "water": {
+      "max": 0,
+      "current": 0
+    },
+    "outdoors": {
+      "max": 0,
+      "current": 0
+    },
+    "coding": {
+      "max": 0,
+      "current": 0
+    },
+    "projects": {
+     "max": 0,
+    "current": 0
+    }
+  }
+    
+}
+
+###
+PATCH  http://localhost:5005/habits/Habit9
+Content-Type: application/json
+
+{
+  "habit": "code"
 }
