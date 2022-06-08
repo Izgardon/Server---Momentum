@@ -20,30 +20,34 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5005/habits
+GET http://localhost:5005/habits/Habit7
 
 ###
 POST http://localhost:5005/habits
 Content-Type: application/json
 
  {
-    "username":  "Will",
+    "username":  "Habit9",
     "habits": {
     "water": {
       "max": 0,
-      "current": 0
+      "current": 0,
+      "active": false
     },
     "outdoors": {
       "max": 0,
-      "current": 0
+      "current": 0,
+      "active": false
     },
-    "coding": {
+    "code": {
       "max": 0,
-      "current": 0
+      "current": 0,
+      "active": false
     },
     "projects": {
       "max": 0,
-      "current": 0
+      "current": 0,
+      "active": false
     }
   },
 
@@ -66,4 +70,12 @@ Content-Type: application/json
     }
   }
     
+}
+
+###
+PATCH  http://localhost:5005/habits/Habit9
+Content-Type: application/json
+
+{
+  "habit": "code"
 }
