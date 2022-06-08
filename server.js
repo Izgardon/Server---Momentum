@@ -26,14 +26,20 @@ app.use("/auth", authRoutes);
 const habitsRoutes = require("./routes/habits");
 app.use("/habits", habitsRoutes);
 
-const PORT = process.env.PORT || 5050;
+// const PORT = process.env.PORT || 5050;
 
-const server = app.listen(
-  PORT,
-  console.log(
-    `server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  )
-);
+// const server = app.listen(
+//   PORT,
+//   console.log(
+//     `server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+//   )
+// );
+
+
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log("server running on 8080")
+})
 
 // handle unhandled promise rejection
 process.on("unhandled rejections", (err, promise) => {
