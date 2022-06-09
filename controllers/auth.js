@@ -11,6 +11,8 @@ async function deleteAll() {
 
 /* deleteAll(); */
 
+//Register function that hashes password and stores hashed password in database
+
 async function register(req, res) {
   try {
     let userCheck = await User.findOne(
@@ -35,6 +37,8 @@ async function register(req, res) {
   }
 }
 
+//Login function that compares hashed stored password with inputted password
+
 async function login(req, res) {
   try {
     //Find user from database
@@ -54,12 +58,16 @@ async function login(req, res) {
   }
 }
 
+//Function that creates a new document in user collection
+
 async function userCreator(data, hash) {
   return await User.create({
     username: data.username,
     password: hash,
   });
 }
+
+//Function that creates a new document in habits collection
 
 async function habitCreator(data) {
   if (data.skill == 1) {
