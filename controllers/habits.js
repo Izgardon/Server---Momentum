@@ -46,11 +46,20 @@ exports.updateHabit = async (req, res, next) => {
         { new: true }
       );
       res.status(202).json(incrementedHabit);
-    }
+    } else if (req.body.streaks) {
+      let queryParam = {};
+      queryParam[`streaks.${req.body.streaks}.current`] = 1;
+      let incremenStreaks = await Habits.findOneAndUpdate(
+        { username: req.params.id },
+        { $inc: queryParam },
+        { new: true }
+    )}
+      res.status(202).json("success adding streak");
   } catch (error) {
     res.status(400).json({ success: false });
-  }
+  } 
 };
+
 
 // DELETE   habit
 // DELETE /habits/:id
