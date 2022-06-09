@@ -13,6 +13,7 @@ exports.getHabit = async (req, res, next) => {
   }
 };
 
+
 // Create new  habit
 // POST '/habits'
 exports.createHabit = async (req, res, next) => {
@@ -28,7 +29,7 @@ exports.createHabit = async (req, res, next) => {
 };
 
 // Update new  habit
-// PUT /habits/:id
+// PATCH /habits/:id
 exports.updateHabit = async (req, res, next) => {
   try {
     //Adding a habit to track
