@@ -3,18 +3,17 @@ const router = express.Router();
 
 const {
   getHabit,
-
+  getDate,
+  postDate,
   createHabit,
   updateHabit,
   deleteHabit,
   updateStreak,
 } = require("../controllers/habits");
 
-router
-  .route("/streaks/:id")
-  .patch(updateStreak)
+router.route("/streaks/:id").patch(updateStreak);
 
-  .post(createHabit);
+router.route("/date/:id").patch(postDate);
 
 router
   .route("/:id")

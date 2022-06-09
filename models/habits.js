@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 // const User = require (mongoose.model("user", UserSchema))
 // const ObjectId = mongoose.Schema.Types.ObjectId;
 
-var incrementStreak = function () {
-  var timeObject = new Date();
+let incrementStreak = function () {
+  let timeObject = new Date();
   timeObject.setTime(timeObject.getTime() + 1 * 24 * 60 * 60 * 1000);
   return timeObject;
 };
@@ -55,6 +55,7 @@ const habitSchema = new mongoose.Schema({
       current: 0,
     },
   },
+  date: String,
 });
 
 const Habits = mongoose.model("habit", habitSchema);

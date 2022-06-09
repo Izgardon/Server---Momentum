@@ -107,6 +107,7 @@ async function habitCreator(data) {
           current: 0,
         },
       },
+      date: data.date,
     });
   } else {
     return await Habits.create({
@@ -153,6 +154,7 @@ async function habitCreator(data) {
           current: 0,
         },
       },
+      date: data.date,
     });
   }
 }

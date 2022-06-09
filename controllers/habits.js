@@ -13,7 +13,6 @@ exports.getHabit = async (req, res, next) => {
   }
 };
 
-
 // Create new  habit
 // POST '/habits'
 exports.createHabit = async (req, res, next) => {
@@ -84,6 +83,62 @@ exports.deleteHabit = async (req, res, next) => {
       return res.status(400).json({ sucess: false });
     }
     res.status(200).json({ sucess: true, data: habit });
+  } catch (error) {
+    res.status(400).json({ success: false });
+  }
+};
+
+exports.postDate = async (req, res, next) => {
+  try {
+    let newDate = await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { date: req.body.date },
+      { new: true }
+    );
+    let queryParamCode = {};
+    let queryParamCode1 = {};
+    queryParamCode[`habits.code.current`] = 0;
+    queryParamCode1[`streaks.code.max`] = false;
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamCode },
+      { new: true }
+    );
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamCode1 },
+      { new: true }
+    );
+    let queryParamWater = {};
+    let queryParamWater1 = {};
+    queryParamWater[`habits.water.current`] = 0;
+    queryParamWater1[`streaks.water.max`] = false;
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamWater },
+      { new: true }
+    );
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamWater1 },
+      { new: true }
+    );
+    let queryParamOutdoors = {};
+    let queryParamOutdoors1 = {};
+    queryParamOutdoors[`habits.outdoors.current`] = 0;
+    queryParamOutdoors1[`streaks.outdoors.max`] = false;
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamOutdoors },
+      { new: true }
+    );
+    await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $set: queryParamOutdoors1 },
+      { new: true }
+    );
+
+    res.status(202).send("Success");
   } catch (error) {
     res.status(400).json({ success: false });
   }

@@ -20,14 +20,14 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5005/habits/x
+GET http://localhost:5005/habits/y
 
 ###
 POST http://localhost:5005/habits
 Content-Type: application/json
 
  {
-    "username":  "v",
+    "username":  "Will",
     "habits": {
     "water": {
       "max": 0,
@@ -73,9 +73,9 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:5005/habits/streaks/x
+PATCH  http://localhost:5005/habits/date/y
 Content-Type: application/json
 
 {
-  "streaks": "projects"
+  "date": "09/06/2022"
 }
