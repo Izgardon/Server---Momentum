@@ -2,6 +2,15 @@ const mongoose = require("mongoose");
 // const User = require (mongoose.model("user", UserSchema))
 // const ObjectId = mongoose.Schema.Types.ObjectId;
 
+
+
+var incrementStreak = function(){
+  var timeObject = new Date();
+  timeObject.setTime(timeObject.getTime() + 1*24*60*60*1000);
+  return timeObject;
+};
+
+
 const habitSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -31,22 +40,24 @@ const habitSchema = new mongoose.Schema({
   },
 
   streaks: {
-    water: {
+    water: [{
       max: 0,
       current: 0,
-    },
-    outdoors: {
+      type: Date, 
+      default: incrementStreak
+    }],
+    outdoors: [{
       max: 0,
       current: 0,
-    },
-    coding: {
+    }],
+    coding: [{
       max: 0,
       current: 0,
-    },
-    projects: {
+    }],
+    projects: [{
       max: 0,
       current: 0,
-    },
+    }],
   },
 });
 
