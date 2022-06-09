@@ -5,6 +5,7 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 let mongoServer;
 
+
 const opts = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -16,7 +17,7 @@ const connect = async () => {
   await mongoose.disconnect();
 
   mongoServer = await MongoMemoryServer.create();
-
+console.log(mongoServer)
   const mongoUri = await mongoServer.getUri();
   await mongoose.connect(mongoUri, opts, err => {
     if (err) {
@@ -36,10 +37,10 @@ const clear = async () => {
   const collections = mongoose.connection.collections;
 
   for (const key in collections) {
-    await collections[key].deleteMany();
+   await collections[key].deleteMany();
   }
 };
-
+console.log(connect())
 module.exports = {
   connect,
   close,

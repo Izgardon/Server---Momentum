@@ -26,8 +26,6 @@ app.use("/auth", authRoutes);
 const habitsRoutes = require("./routes/habits");
 app.use("/habits", habitsRoutes);
 
-
-
 if (process.env.NODE_ENV !== 'test') {app.listen(process.env.PORT || 8080, () => {
   const PORT = 8080;
   console.log(`server running  in ${process.env.NODE_ENV} mode on ${PORT}`.yellow.bold)
@@ -39,3 +37,6 @@ process.on("unhandled rejections", (err, promise) => {
   //close server and exit process
   server.close(() => process.exit(1));
 });
+
+
+module.exports = app

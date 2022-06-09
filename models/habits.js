@@ -56,9 +56,10 @@ const habitSchema = new mongoose.Schema({
       max: false,
 
       current: 0,
-    }],
+    },
   },
 });
 
 const Habits = mongoose.model("habit", habitSchema);
+
 module.exports = Habits;
