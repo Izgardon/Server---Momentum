@@ -120,7 +120,6 @@ it('checks streaks for water exists', async () => {
 
   expect(savedUser.streaks.water.max).toBe(userData.streaks.water.max);
   expect(savedUser.streaks.water.active).toBe(userData.streaks.water.active);
-  expect(savedUser.streaks.water.current).toBe(userData.streaks.water.current);
 
 });
 
@@ -130,9 +129,7 @@ it('checks streaks for outdoors exists', async () => {
   const savedUser = await validUser.save();
 
   expect(savedUser.streaks.outdoors.max).toBe(userData.streaks.outdoors.max);
-  expect(savedUser.streaks.outdoors.active).toBe(userData.streaks.outdoors.active);
   expect(savedUser.streaks.outdoors.current).toBe(userData.streaks.outdoors.current);
-
 
 });
 
@@ -145,8 +142,6 @@ it('checks streaks for code exists', async () => {
 
   expect(savedUser.streaks.code.max).toBe(userData.streaks.code.max);
   expect(savedUser.streaks.code.current).toBe(userData.streaks.code.current);
-  expect(savedUser.streaks.code.active).toBe(userData.streaks.code.active);
-
 
 });
 
@@ -158,7 +153,6 @@ it('checks streaks for projects exists', async () => {
 
   expect(savedUser.streaks.projects.max).toBe(userData.streaks.projects.max);
   expect(savedUser.streaks.projects.current).toBe(userData.streaks.projects.current);
-  expect(savedUser.streaks.projects.active).toBe(userData.streaks.projects.active);
 
 
 });
