@@ -119,7 +119,7 @@ it('checks streaks for water exists', async () => {
   const savedUser = await validUser.save();
 
   expect(savedUser.streaks.water.max).toBe(userData.streaks.water.max);
-  expect(savedUser.streaks.water.active).toBe(userData.streaks.water.active);
+  expect(savedUser.streaks.water.current).toBe(userData.streaks.water.current);
 
 });
 
