@@ -2,14 +2,11 @@ const mongoose = require("mongoose");
 // const User = require (mongoose.model("user", UserSchema))
 // const ObjectId = mongoose.Schema.Types.ObjectId;
 
-
-
-var incrementStreak = function(){
+var incrementStreak = function () {
   var timeObject = new Date();
-  timeObject.setTime(timeObject.getTime() + 1*24*60*60*1000);
+  timeObject.setTime(timeObject.getTime() + 1 * 24 * 60 * 60 * 1000);
   return timeObject;
 };
-
 
 const habitSchema = new mongoose.Schema({
   username: {
@@ -56,7 +53,7 @@ const habitSchema = new mongoose.Schema({
       max: false,
 
       current: 0,
-    }],
+    },
   },
 });
 
