@@ -20,14 +20,14 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5005/habits/Izgardon
+GET http://localhost:5005/habits/x
 
 ###
 POST http://localhost:5005/habits
 Content-Type: application/json
 
  {
-    "username":  "Habit9",
+    "username":  "v",
     "habits": {
     "water": {
       "max": 0,
@@ -53,19 +53,19 @@ Content-Type: application/json
 
   "streaks": {
     "water": {
-      "max": 0,
+      "max": false,
       "current": 0
     },
     "outdoors": {
-      "max": 0,
+      "max": false,
       "current": 0
     },
-    "coding": {
-      "max": 0,
+    "code": {
+      "max": false,
       "current": 0
     },
     "projects": {
-     "max": 0,
+     "max": false,
     "current": 0
     }
   }
@@ -73,9 +73,9 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:5005/habits/Izgardon
+PATCH  http://localhost:5005/habits/streaks/x
 Content-Type: application/json
 
 {
-  "type": "code"
+  "streaks": "projects"
 }

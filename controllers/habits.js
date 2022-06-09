@@ -6,6 +6,7 @@ const Habits = require("../models/habits");
 exports.getHabit = async (req, res, next) => {
   try {
     const userHabits = await Habits.find({ username: req.params.id });
+
     res.status(200).json(userHabits);
   } catch (error) {
     res.status(400).json({ success: false });
@@ -30,6 +31,7 @@ exports.createHabit = async (req, res, next) => {
 // PUT /habits/:id
 exports.updateHabit = async (req, res, next) => {
   try {
+    //Adding a habit to track
     if (req.body.habit) {
       let queryParam = {};
       queryParam[`habits.${req.body.habit}.active`] = true;
@@ -37,7 +39,10 @@ exports.updateHabit = async (req, res, next) => {
       await Habits.findOneAndUpdate({ username: req.params.id }, queryParam);
 
       res.status(202).send("Success adding habit");
-    } else if (req.body.type) {
+    }
+
+    //Updating progress
+    else if (req.body.type) {
       let queryParam = {};
       queryParam[`habits.${req.body.type}.current`] = 1;
       let incrementedHabit = await Habits.findOneAndUpdate(
@@ -46,20 +51,28 @@ exports.updateHabit = async (req, res, next) => {
         { new: true }
       );
       res.status(202).json(incrementedHabit);
-    } else if (req.body.streaks) {
-      let queryParam = {};
-      queryParam[`streaks.${req.body.streaks}.current`] = 1;
-      let incremenStreaks = await Habits.findOneAndUpdate(
-        { username: req.params.id },
-        { $inc: queryParam },
-        { new: true }
-    )}
-      res.status(202).json("success adding streak");
+    }
   } catch (error) {
     res.status(400).json({ success: false });
-  } 
+  }
 };
 
+exports.updateStreak = async (req, res, next) => {
+  try {
+    let queryParam = {};
+    let queryParam1 = {};
+    queryParam[`streaks.${req.body.streaks}.current`] = 1;
+    queryParam1[`streaks.${req.body.streaks}.max`] = true;
+    let incrementStreaks = await Habits.findOneAndUpdate(
+      { username: req.params.id },
+      { $inc: queryParam, $set: queryParam1 },
+      { new: true }
+    );
+    res.status(202).send(incrementStreaks);
+  } catch (error) {
+    res.status(400).json({ success: false });
+  }
+};
 
 // DELETE   habit
 // DELETE /habits/:id

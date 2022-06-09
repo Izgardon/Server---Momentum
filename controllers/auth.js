@@ -90,19 +90,19 @@ async function habitCreator(data) {
 
     streaks: {
       water: {
-        max: 0,
+        max: false,
         current: 0,
       },
       outdoors: {
-        max: 0,
+        max: false,
         current: 0,
       },
-      coding: {
-        max: 0,
+      code: {
+        max: false,
         current: 0,
       },
       projects: {
-        max: 0,
+        max: false,
         current: 0,
       },
     },

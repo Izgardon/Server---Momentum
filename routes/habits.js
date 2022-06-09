@@ -2,17 +2,19 @@ const express = require("express");
 const router = express.Router();
 
 const {
-
   getHabit,
-  // completEHabit,
+
   createHabit,
   updateHabit,
   deleteHabit,
+  updateStreak,
 } = require("../controllers/habits");
 
-router.route("/")
+router
+  .route("/streaks/:id")
+  .patch(updateStreak)
 
-.post(createHabit);
+  .post(createHabit);
 
 router
   .route("/:id")
