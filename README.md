@@ -4,7 +4,7 @@ Habit Tracker app built for coders
 
 # Connect to DB
 ```
-npm start
+npm run dev
 
 ```
 
