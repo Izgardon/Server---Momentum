@@ -62,51 +62,99 @@ async function userCreator(data, hash) {
 }
 
 async function habitCreator(data) {
-  return await Habits.create({
-    username: data.username,
+  if (data.skill == 1) {
+    return await Habits.create({
+      username: data.username,
 
-    habits: {
-      water: {
-        max: 8,
-        current: 0,
-        active: false,
+      habits: {
+        water: {
+          max: 8,
+          current: 0,
+          active: false,
+        },
+        outdoors: {
+          max: 3,
+          current: 0,
+          active: false,
+        },
+        code: {
+          max: data.skill * 2,
+          current: 0,
+          active: false,
+        },
+        projects: {
+          max: 2,
+          current: 0,
+          active: false,
+        },
       },
-      outdoors: {
-        max: 3,
-        current: 0,
-        active: false,
-      },
-      code: {
-        max: data.skill * 2,
-        current: 0,
-        active: false,
-      },
-      projects: {
-        max: data.skill * 1,
-        current: 0,
-        active: false,
-      },
-    },
 
-    streaks: {
-      water: {
-        max: false,
-        current: 0,
+      streaks: {
+        water: {
+          max: false,
+          current: 0,
+        },
+        outdoors: {
+          max: false,
+          current: 0,
+        },
+        code: {
+          max: false,
+          current: 0,
+        },
+        projects: {
+          max: false,
+          current: 0,
+        },
       },
-      outdoors: {
-        max: false,
-        current: 0,
+    });
+  } else {
+    return await Habits.create({
+      username: data.username,
+
+      habits: {
+        water: {
+          max: 8,
+          current: 0,
+          active: false,
+        },
+        outdoors: {
+          max: 3,
+          current: 0,
+          active: false,
+        },
+        code: {
+          max: data.skill * 2,
+          current: 0,
+          active: false,
+        },
+        projects: {
+          max: data.skill * 1,
+          current: 0,
+          active: false,
+        },
       },
-      code: {
-        max: false,
-        current: 0,
+
+      streaks: {
+        water: {
+          max: false,
+          current: 0,
+        },
+        outdoors: {
+          max: false,
+          current: 0,
+        },
+        code: {
+          max: false,
+          current: 0,
+        },
+        projects: {
+          max: false,
+          current: 0,
+        },
       },
-      projects: {
-        max: false,
-        current: 0,
-      },
-    },
-  });
+    });
+  }
 }
 
 async function getAllUsers(req, res) {
