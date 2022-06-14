@@ -1,0 +1,81 @@
+###
+GET http://localhost:5005/auth
+
+###
+POST http://localhost:5005/auth/register
+Content-Type: application/json
+
+{
+    "username": "George",
+    "password": "Foxtrot1"
+}
+
+###
+POST http://localhost:5005/auth/login
+Content-Type: application/json
+
+{
+    "username":  "Will",
+    "password": "Foxtr5"
+}
+
+###
+GET http://localhost:5005/habits/y
+
+###
+POST http://localhost:5005/habits
+Content-Type: application/json
+
+ {
+    "username":  "Will",
+    "habits": {
+    "water": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "outdoors": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "code": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    },
+    "projects": {
+      "max": 0,
+      "current": 0,
+      "active": false
+    }
+  },
+
+  "streaks": {
+    "water": {
+      "max": false,
+      "current": 0
+    },
+    "outdoors": {
+      "max": false,
+      "current": 0
+    },
+    "code": {
+      "max": false,
+      "current": 0
+    },
+    "projects": {
+     "max": false,
+    "current": 0
+    }
+  }
+    
+}
+
+###
+PATCH  http://localhost:5005/habits/date/Romeo
+Content-Type: application/json
+
+{
+  "date": "09/06/2022"
+}
