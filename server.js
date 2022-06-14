@@ -5,7 +5,7 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 
 const app = express();
-app.use(cors("*"));
+app.use(cors());
 
 //Routes
 app.use(express.json());
@@ -26,10 +26,14 @@ app.use("/auth", authRoutes);
 const habitsRoutes = require("./routes/habits");
 app.use("/habits", habitsRoutes);
 
-if (process.env.NODE_ENV !== 'test') {app.listen(process.env.PORT || 8080, () => {
-  const PORT = 8080;
-  console.log(`server running  in ${process.env.NODE_ENV} mode on ${PORT}`.yellow.bold)
-})}
+if (process.env.NODE_ENV !== "test") {
+  app.listen(process.env.PORT || 8080, () => {
+    const PORT = 8080;
+    console.log(
+      `server running  in ${process.env.NODE_ENV} mode on ${PORT}`.yellow.bold
+    );
+  });
+}
 
 // handle unhandled promise rejection
 process.on("unhandled rejections", (err, promise) => {
@@ -38,5 +42,4 @@ process.on("unhandled rejections", (err, promise) => {
   server.close(() => process.exit(1));
 });
 
-
-module.exports = app
+module.exports = app;

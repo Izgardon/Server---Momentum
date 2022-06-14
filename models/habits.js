@@ -35,7 +35,6 @@ const habitSchema = new mongoose.Schema({
       active: false,
     },
   },
-
   streaks: {
     water: {
       max: false,

@@ -73,7 +73,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:5005/habits/date/y
+PATCH  http://localhost:5005/habits/date/Romeo
 Content-Type: application/json
 
 {
